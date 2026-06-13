@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Things We Keep Just in Case | Sansun Living</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --salmon: #e5c7b5; --salmon-deep: #c99a82; --salmon-pale: #f5ebe4;
+    --green: #7c8479; --green-dark: #5a6057; --green-light: #b0b8ad;
+    --espresso: #2e2118; --espresso-mid: #4a3728; --warm-white: #faf7f4;
+    --cream: #f5f0e8; --text-body: #3a2e22; --text-muted: #7a6a58;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Jost', sans-serif; font-weight: 300; background-color: var(--warm-white); color: var(--text-body); line-height: 1.85; font-size: 17px; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.4rem 4rem; display: flex; justify-content: space-between; align-items: center; background: rgba(250,247,244,0.93); backdrop-filter: blur(10px); border-bottom: 1px solid var(--salmon); }
+  .nav-name { display: flex; flex-direction: column; gap: 0.1rem; text-decoration: none; }
+  .nav-name-primary { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 1.25rem; letter-spacing: 3px; text-transform: uppercase; color: var(--espresso); line-height: 1; }
+  .nav-name-secondary { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 0.62rem; letter-spacing: 4px; text-transform: uppercase; color: var(--green); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.3s ease; }
+  .nav-links a:hover { color: var(--green-dark); }
+  .article-hero { padding: 10rem 2rem 5rem; background: var(--cream); border-bottom: 1px solid var(--salmon); }
+  .article-hero .container { max-width: 780px; margin: 0 auto; }
+  .article-eyebrow { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 0.68rem; letter-spacing: 4px; text-transform: uppercase; color: var(--green); margin-bottom: 1.2rem; }
+  .article-title { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: 2px; text-transform: uppercase; color: var(--espresso); line-height: 1.15; margin-bottom: 2rem; }
+  .article-meta { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted); }
+  .article-body { padding: 5rem 2rem 7rem; }
+  .article-body .container { max-width: 680px; margin: 0 auto; }
+  .article-back { display: inline-flex; align-items: center; gap: 0.6rem; font-family: 'Jost', sans-serif; font-weight: 300; font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted); text-decoration: none; margin-bottom: 4rem; transition: color 0.3s ease; }
+  .article-back:hover { color: var(--green-dark); }
+  .article-body p { font-size: 1.05rem; line-height: 1.95; color: var(--text-body); margin-bottom: 1.6rem; }
+  .article-body p:last-child { margin-bottom: 0; }
+  .article-body em { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.2rem; }
+  .journal-pull { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(1.3rem, 2.2vw, 1.75rem); font-style: italic; color: var(--espresso); border-left: 2px solid var(--salmon-deep); padding-left: 2rem; margin: 3rem 0; line-height: 1.55; }
+  .article-nav { border-top: 1px solid var(--salmon); padding-top: 3rem; margin-top: 5rem; display: flex; justify-content: space-between; align-items: center; gap: 2rem; }
+  .article-nav a { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.3s ease; }
+  .article-nav a:hover { color: var(--green-dark); }
+  .article-nav .next { text-align: right; }
+  footer { background-color: var(--espresso); padding: 3rem 4rem; display: flex; justify-content: space-between; align-items: center; }
+  .footer-left { display: flex; flex-direction: column; gap: 0.3rem; }
+  .footer-name { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.1rem; letter-spacing: 4px; text-transform: uppercase; color: var(--warm-white); }
+  .footer-brand { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 0.6rem; letter-spacing: 4px; text-transform: uppercase; color: var(--salmon); }
+  .footer-tagline { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-style: italic; font-size: 0.95rem; color: rgba(245,240,232,0.5); }
+  .footer-links { display: flex; gap: 1.8rem; }
+  .footer-links a { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--green-light); text-decoration: none; transition: color 0.3s ease; }
+  .footer-links a:hover { color: var(--salmon); }
+  @media (max-width: 768px) { nav { padding: 1.2rem 1.5rem; } .nav-links { display: none; } footer { flex-direction: column; gap: 1.8rem; text-align: center; padding: 2.5rem 1.5rem; } .article-hero { padding: 8rem 1.5rem 4rem; } .article-body { padding: 4rem 1.5rem 5rem; } }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-name">
+    <span class="nav-name-primary">Naomi Murray</span>
+    <span class="nav-name-secondary">Sansun Living</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#for-you">Is This For You</a></li>
+    <li><a href="index.html#how">How I Work</a></li>
+    <li><a href="index.html#work">What I Bring</a></li>
+    <li><a href="index.html#packages">Investment</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="journal.html" style="color: var(--green-dark);">Journal</a></li>
+    <li><a href="index.html#consult">Book a Consultation</a></li>
+  </ul>
+</nav>
+
+<div class="article-hero">
+  <div class="container">
+    <p class="article-eyebrow">Journal &mdash; Issue No. 2</p>
+    <h1 class="article-title">The Things We Keep Just in Case</h1>
+    <p class="article-meta">April 2026 &mdash; Naomi Murray</p>
+  </div>
+</div>
+
+<section class="article-body">
+  <div class="container">
+    <a href="journal.html" class="article-back">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8l4-4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back to Journal
+    </a>
+
+    <p>There is a particular category of object that lives in almost every home I work in. It sits at the back of a shelf or the bottom of a box, slightly out of reach, slightly out of mind. It is not loved. It is not used. It is kept against a future need that never quite arrives.</p>
+    <p>We tend to call this prudence. I think it is something else.</p>
+    <p>The <em>just in case</em> object carries weight that has nothing to do with its size. It represents a version of the future we are hedging against, a quiet anxiety that if we let it go, we will somehow be caught short. Multiply that logic across a whole household and you have rooms that feel heavy with potential rather than settled with purpose.</p>
+    <blockquote class="journal-pull">What we choose to keep is a question about how much we trust ourselves, not just how much we trust the future.</blockquote>
+    <p>The work of releasing these objects is not really about the objects. It is about practising the belief that you will be able to manage whatever comes, that you do not need to store solutions to problems that do not yet exist.</p>
+    <p>This is not a call to minimalism. I am not interested in empty rooms or prescribed aesthetics. I am interested in homes where everything present is either useful, loved, or both. The rest is simply weight you are carrying on behalf of a future that may never arrive.</p>
+    <p>When clients let go of the just-in-case pile, they almost always describe the same thing afterwards. Not relief exactly. More like a quietness they had not noticed was missing.</p>
+
+    <div class="article-nav">
+      <a href="journal-1.html">&larr; When Your Home Stops Feeling Like Yours</a>
+      <a href="journal-3.html" class="next">Next: Why the Kitchen Tells You Everything &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-left">
+    <span class="footer-name">Naomi Murray</span>
+    <span class="footer-brand">Sansun Living</span>
+  </div>
+  <span class="footer-tagline">Creating Space to Breathe</span>
+  <div class="footer-links">
+    <a href="https://instagram.com" target="_blank">Instagram</a>
+    <a href="https://pinterest.com" target="_blank">Pinterest</a>
+    <a href="mailto:info@sansunliving.com">Contact</a>
+  </div>
+</footer>
+</body>
+</html>

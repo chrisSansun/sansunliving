@@ -8,7 +8,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-
   :root {
     --salmon:       #e5c7b5;
     --salmon-deep:  #c99a82;
@@ -16,15 +15,12 @@
     --green:        #7c8479;
     --green-dark:   #5a6057;
     --green-light:  #b0b8ad;
-    --mist:         #e8eff1;
-    --mist-deep:    #d0dde1;
     --espresso:     #2e2118;
     --espresso-mid: #4a3728;
     --warm-white:   #faf7f4;
     --cream:        #f5f0e8;
     --text-body:    #3a2e22;
     --text-muted:   #7a6a58;
-    --gold:         #c9a96e;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -39,7 +35,6 @@
     font-size: 17px;
   }
 
-  /* ── NAV ── */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -53,324 +48,22 @@
     border-bottom: 1px solid var(--salmon);
   }
 
-  .nav-name {
-    display: flex;
-    flex-direction: column;
-    gap: 0.1rem;
-    text-decoration: none;
-  }
+  .nav-name { display: flex; flex-direction: column; gap: 0.1rem; text-decoration: none; }
+  .nav-name-primary { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 1.25rem; letter-spacing: 3px; text-transform: uppercase; color: var(--espresso); line-height: 1; }
+  .nav-name-secondary { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 0.62rem; letter-spacing: 4px; text-transform: uppercase; color: var(--green); }
 
-  .nav-name-primary {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 500;
-    font-size: 1.25rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--espresso);
-    line-height: 1;
-  }
-
-  .nav-name-secondary {
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    font-size: 0.62rem;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--green);
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 2.5rem;
-    list-style: none;
-  }
-
-  .nav-links a {
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    font-size: 0.72rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.3s ease; }
   .nav-links a:hover { color: var(--green-dark); }
 
   /* ── HERO ── */
-  .hero {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    padding-top: 80px;
-    overflow: hidden;
-    position: relative;
+  .journal-hero {
+    padding: 10rem 2rem 6rem;
+    background: var(--cream);
+    border-bottom: 1px solid var(--salmon);
   }
 
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 30% 60%, rgba(229,199,181,0.22) 0%, transparent 55%),
-                radial-gradient(ellipse at 80% 20%, rgba(232,239,241,0.3) 0%, transparent 50%);
-    pointer-events: none;
-  }
-
-  .hero-content {
-    padding: 6rem 5rem 6rem 7rem;
-    position: relative;
-    z-index: 2;
-  }
-
-  .hero-eyebrow {
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    font-size: 0.7rem;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: var(--green);
-    margin-bottom: 1.2rem;
-    opacity: 0;
-    animation: fadeUp 0.9s ease 0.2s forwards;
-  }
-
-  .hero-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 400;
-    font-size: clamp(2.2rem, 3.8vw, 3.4rem);
-    letter-spacing: 6px;
-    text-transform: uppercase;
-    color: var(--espresso);
-    line-height: 1.1;
-    margin-bottom: 0.5rem;
-    opacity: 0;
-    animation: fadeUp 0.9s ease 0.4s forwards;
-  }
-
-  .hero-brand {
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    font-size: 0.65rem;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: var(--salmon-deep);
-    margin-bottom: 2.2rem;
-    opacity: 0;
-    animation: fadeUp 0.9s ease 0.55s forwards;
-  }
-
-  .hero-divider {
-    width: 50px;
-    height: 1px;
-    background: var(--salmon-deep);
-    margin-bottom: 1.8rem;
-    opacity: 0;
-    animation: fadeUp 0.9s ease 0.7s forwards;
-  }
-
-  .hero-headline {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 400;
-    font-size: clamp(1.7rem, 3vw, 2.4rem);
-    font-style: italic;
-    color: var(--espresso);
-    line-height: 1.4;
-    margin-bottom: 1.2rem;
-    opacity: 0;
-    animation: fadeUp 0.9s ease 0.85s forwards;
-  }
-
-  .hero-subline {
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    font-size: 0.95rem;
-    color: var(--text-muted);
-    max-width: 420px;
-    line-height: 1.95;
-    margin-bottom: 3rem;
-    opacity: 0;
-    animation: fadeUp 0.9s ease 1s forwards;
-  }
-
-  .hero-ctas {
-    display: flex;
-    gap: 1.2rem;
-    flex-wrap: wrap;
-    opacity: 0;
-    animation: fadeUp 0.9s ease 1.15s forwards;
-  }
-
-  .hero-intro {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-size: 1.05rem;
-    font-style: italic;
-    color: var(--green-dark);
-    max-width: 400px;
-    line-height: 1.75;
-    margin-bottom: 1.8rem;
-    opacity: 0;
-    animation: fadeUp 0.9s ease 0.6s forwards;
-  }
-
-  /* ── JOURNAL ── */
-  .journal-card {
-    background: var(--warm-white);
-    border-top: 2px solid var(--salmon);
-    padding: 3rem 2.8rem;
-    max-width: 780px;
-    margin: 3rem auto 0;
-  }
-
-  .journal-date {
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    font-size: 0.68rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--green);
-    margin-bottom: 1rem;
-  }
-
-  .journal-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 500;
-    font-size: clamp(1.5rem, 2.8vw, 2.1rem);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--espresso);
-    line-height: 1.2;
-    margin-bottom: 2rem;
-  }
-
-  .journal-body p {
-    font-size: 1rem;
-    line-height: 1.9;
-    color: var(--text-body);
-    margin-bottom: 1.5rem;
-  }
-
-  .journal-body p:last-child { margin-bottom: 0; }
-
-  .journal-body em {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 1.15rem;
-  }
-
-  .journal-pull {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-size: clamp(1.3rem, 2.2vw, 1.7rem);
-    font-style: italic;
-    color: var(--espresso);
-    border-left: 2px solid var(--salmon-deep);
-    padding-left: 2rem;
-    margin: 2.5rem 0;
-    line-height: 1.55;
-  }
-
-  .btn-primary {
-    display: inline-block;
-    font-family: 'Jost', sans-serif;
-    font-weight: 400;
-    font-size: 0.72rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--warm-white);
-    background: var(--green-dark);
-    border: 1px solid var(--green-dark);
-    padding: 1rem 2.4rem;
-    text-decoration: none;
-    transition: all 0.35s ease;
-  }
-
-  .btn-primary:hover {
-    background: transparent;
-    color: var(--green-dark);
-  }
-
-  .btn-outline {
-    display: inline-block;
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    font-size: 0.72rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--espresso-mid);
-    background: transparent;
-    border: 1px solid var(--salmon-deep);
-    padding: 1rem 2.4rem;
-    text-decoration: none;
-    transition: all 0.35s ease;
-  }
-
-  .btn-outline:hover {
-    background: var(--salmon);
-    color: var(--espresso);
-    border-color: var(--salmon);
-  }
-
-  /* Hero photo panel */
-  .hero-photo {
-    position: relative;
-    height: 100vh;
-    overflow: hidden;
-    background: var(--salmon-pale);
-  }
-
-  .hero-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  /* Photo placeholder */
-  .photo-placeholder {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    color: var(--salmon-deep);
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    font-size: 0.75rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    text-align: center;
-    padding: 2rem;
-  }
-
-  .photo-placeholder svg {
-    opacity: 0.35;
-    margin-bottom: 0.5rem;
-  }
-
-  .photo-placeholder span {
-    opacity: 0.6;
-    max-width: 200px;
-    line-height: 1.8;
-  }
-
-  .hero-photo-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to right, rgba(250,247,244,0.15) 0%, transparent 30%),
-                linear-gradient(to top, rgba(46,33,24,0.2) 0%, transparent 40%);
-    pointer-events: none;
-  }
-
-  /* ── SHARED SECTION STYLES ── */
-  section { padding: 7rem 2rem; }
-
-  .container { max-width: 780px; margin: 0 auto; }
-  .container-wide { max-width: 1120px; margin: 0 auto; }
+  .journal-hero .container { max-width: 780px; margin: 0 auto; }
 
   .section-eyebrow {
     font-family: 'Jost', sans-serif;
@@ -390,439 +83,125 @@
     text-transform: uppercase;
     color: var(--espresso);
     line-height: 1.15;
-    margin-bottom: 2.2rem;
+    margin-bottom: 2rem;
   }
 
   .section-divider {
     width: 44px;
     height: 2px;
     background: var(--salmon-deep);
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
   }
 
-  p { margin-bottom: 1.4rem; color: var(--text-body); }
-  p:last-child { margin-bottom: 0; }
+  .journal-hero-intro {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 560px;
+    line-height: 1.75;
+  }
 
-  /* ── ABOUT, with photo ── */
-  .section-cream { background-color: var(--cream); }
+  /* ── CARD GRID ── */
+  .journal-index {
+    padding: 6rem 2rem 8rem;
+  }
 
-  .about-layout {
+  .journal-index .container { max-width: 1100px; margin: 0 auto; }
+
+  .journal-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-bottom: 4rem;
+    transition: color 0.3s ease;
+  }
+
+  .journal-back:hover { color: var(--green-dark); }
+
+  .journal-grid {
     display: grid;
-    grid-template-columns: 1fr 380px;
-    gap: 5rem;
-    align-items: start;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
   }
 
-  .portrait-frame {
-    position: relative;
+  .journal-card {
+    background: var(--warm-white);
+    border-top: 2px solid var(--salmon);
+    padding: 2.8rem 2.4rem;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    transition: border-top-color 0.35s ease, background 0.35s ease;
   }
 
-  .portrait-frame::before {
-    content: '';
-    position: absolute;
-    top: -16px;
-    right: -16px;
-    width: 100%;
-    height: 100%;
-    border: 2px solid var(--salmon);
-    z-index: 0;
-  }
-
-  .portrait-img {
-    width: 100%;
-    aspect-ratio: 3/4;
-    object-fit: cover;
-    display: block;
-    position: relative;
-    z-index: 1;
+  .journal-card:hover {
+    border-top-color: var(--green-dark);
     background: var(--salmon-pale);
   }
 
-  .portrait-placeholder {
-    width: 100%;
-    aspect-ratio: 3/4;
-    background: linear-gradient(145deg, var(--salmon-pale) 0%, var(--mist) 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    color: var(--salmon-deep);
+  .card-issue {
     font-family: 'Jost', sans-serif;
     font-weight: 300;
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     letter-spacing: 3px;
     text-transform: uppercase;
-    text-align: center;
-    padding: 2rem;
-    position: relative;
-    z-index: 1;
+    color: var(--green);
+    margin-bottom: 0.6rem;
   }
 
-  .portrait-placeholder svg { opacity: 0.35; margin-bottom: 0.5rem; }
-  .portrait-placeholder span { opacity: 0.55; max-width: 160px; line-height: 1.9; }
-
-  /* ── SERVICES ── */
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 3px;
-    margin-top: 3rem;
+  .card-date {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 1.2rem;
   }
 
-  .service-card {
-    background: var(--warm-white);
-    padding: 3.2rem 2.8rem;
-    position: relative;
-    border-top: 3px solid transparent;
-    transition: border-color 0.4s ease;
+  .card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 1.55rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--espresso);
+    line-height: 1.2;
+    margin-bottom: 1.2rem;
   }
 
-  .service-card:hover { border-top-color: var(--salmon-deep); }
+  .card-excerpt {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    flex-grow: 1;
+    margin-bottom: 2rem;
+  }
 
-  .service-type {
+  .card-read {
     font-family: 'Jost', sans-serif;
     font-weight: 400;
     font-size: 0.68rem;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--green);
-    margin-bottom: 0.9rem;
-  }
-
-  .service-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 500;
-    font-size: 1.85rem;
-    letter-spacing: 2px;
-    color: var(--espresso);
-    margin-bottom: 1.2rem;
-    text-transform: uppercase;
-    line-height: 1.15;
-  }
-
-  .service-desc {
-    font-size: 0.95rem;
-    line-height: 1.85;
-    color: var(--text-muted);
-    margin-bottom: 0;
-  }
-
-  /* ── BELIEF STATEMENT ── */
-  .belief-statement {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 400;
-    font-size: clamp(1.6rem, 2.8vw, 2.3rem);
-    font-style: italic;
-    color: var(--espresso);
-    line-height: 1.5;
-    border-left: 3px solid var(--salmon-deep);
-    padding-left: 2.2rem;
-    margin: 3rem 0;
-  }
-
-  /* ── PHOTO STRIP ── */
-  .photo-strip {
-    background: var(--mist);
-    padding: 0;
-    overflow: hidden;
-  }
-
-  .photo-strip-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    height: 520px;
-  }
-
-  .strip-photo {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .strip-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.8s ease;
-  }
-
-  .strip-photo:hover img { transform: scale(1.03); }
-
-  .strip-photo-placeholder {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    font-size: 0.7rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    text-align: center;
-    padding: 2rem;
-  }
-
-  .strip-photo-placeholder.ocean {
-    background: linear-gradient(160deg, #c5d8de 0%, #8fadb5 40%, #7c8479 100%);
-    color: #e8eff1;
-  }
-
-  .strip-photo-placeholder.living {
-    background: linear-gradient(160deg, var(--salmon-pale) 0%, #ede0d4 50%, #d4c4b4 100%);
-    color: var(--espresso-mid);
-  }
-
-  .strip-photo-placeholder svg { opacity: 0.4; margin-bottom: 0.5rem; }
-  .strip-photo-placeholder span { opacity: 0.7; max-width: 180px; line-height: 1.9; }
-
-  .strip-caption {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    padding: 1.5rem 2rem;
-    background: linear-gradient(to top, rgba(46,33,24,0.5) 0%, transparent 100%);
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-style: italic;
-    font-size: 0.95rem;
-    color: rgba(255,255,255,0.9);
-    letter-spacing: 1px;
-  }
-
-  /* ── PACKAGES ── */
-  .packages-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
-    gap: 2px;
-    margin-top: 3rem;
-  }
-
-  .package-card {
-    background: var(--warm-white);
-    padding: 2.8rem 2.4rem;
-    border-top: 2px solid var(--salmon);
-    transition: border-top-color 0.4s ease;
-    position: relative;
-  }
-
-  .package-card.featured {
-    background: #757263;
-    border-top-color: var(--salmon);
-  }
-
-  .package-card:hover { border-top-color: var(--green-dark); }
-  .package-card.featured:hover { border-top-color: var(--salmon-deep); }
-
-  .package-label {
-    font-family: 'Jost', sans-serif;
-    font-weight: 400;
-    font-size: 0.63rem;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--green);
-    margin-bottom: 0.7rem;
-  }
-
-  .package-card.featured .package-label { color: var(--salmon-pale); }
-
-  .package-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 500;
-    font-size: 1.65rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--espresso);
-    line-height: 1.15;
-    margin-bottom: 1rem;
-  }
-
-  .package-card.featured .package-name { color: var(--warm-white); }
-
-  .package-desc {
-    font-size: 0.9rem;
-    line-height: 1.85;
-    color: var(--text-muted);
-    margin-bottom: 1.5rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--salmon-pale);
-  }
-
-  .package-card.featured .package-desc {
-    color: rgba(250,247,244,0.78);
-    border-bottom-color: rgba(229,199,181,0.25);
-  }
-
-  .package-includes {
-    list-style: none;
-    margin-bottom: 0;
-  }
-
-  .package-includes li {
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    font-size: 0.82rem;
-    color: var(--text-muted);
-    padding: 0.45rem 0 0.45rem 1.3rem;
-    position: relative;
-    line-height: 1.6;
-  }
-
-  .package-card.featured .package-includes li { color: rgba(245,240,232,0.58); }
-
-  .package-includes li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: var(--salmon-deep);
-  }
-
-  .package-card.featured .package-includes li::before { background: var(--salmon); }
-
-  .packages-note {
-    text-align: center;
-    margin-top: 3rem;
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 1.05rem;
-    color: var(--text-muted);
-    line-height: 1.75;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  /* ── FOR YOU ── */
-  .for-you-list {
-    list-style: none;
-    margin-top: 2rem;
-  }
-
-  .for-you-list li {
-    padding: 1.5rem 0 1.5rem 2rem;
-    border-bottom: 1px solid var(--salmon);
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 400;
-    font-size: 1.2rem;
-    font-style: italic;
-    color: var(--espresso);
-    line-height: 1.65;
-    position: relative;
-  }
-
-  .for-you-list li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--salmon-deep);
-  }
-
-  .for-you-list li:first-child { border-top: 1px solid var(--salmon); }
-
-  /* ── MIST BAND ── */
-  .section-mist { background-color: var(--mist); }
-
-  /* ── CLOSING LINE ── */
-  .closing-line {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-size: clamp(1.3rem, 2.4vw, 1.8rem);
-    font-style: italic;
-    color: var(--espresso-mid);
-    line-height: 1.6;
-    text-align: center;
-    max-width: 620px;
-    margin: 3rem auto 0;
-    padding-top: 2rem;
-    border-top: 1px solid var(--salmon);
-  }
-
-  /* ── CTA ── */
-  .section-cta {
-    background-color: var(--green-dark);
-    text-align: center;
-    padding: 9rem 2rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .section-cta::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 70% 30%, rgba(229,199,181,0.15) 0%, transparent 55%),
-                radial-gradient(ellipse at 20% 80%, rgba(232,239,241,0.1) 0%, transparent 45%);
-    pointer-events: none;
-  }
-
-  .section-cta .section-eyebrow {
-    color: var(--salmon);
-    position: relative;
-    z-index: 1;
-  }
-
-  .section-cta .section-title {
-    color: var(--warm-white);
-    position: relative;
-    z-index: 1;
-  }
-
-  .section-cta p {
-    color: rgba(245,240,232,0.75);
-    max-width: 480px;
-    margin: 0 auto 3rem;
-    font-style: italic;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.15rem;
-    position: relative;
-    z-index: 1;
-  }
-
-  .cta-url {
-    display: block;
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    font-size: 0.75rem;
-    letter-spacing: 3px;
-    color: var(--salmon);
-    margin-top: 1.8rem;
-    position: relative;
-    z-index: 1;
-  }
-
-  .btn-cta {
-    display: inline-block;
-    font-family: 'Jost', sans-serif;
-    font-weight: 400;
-    font-size: 0.72rem;
     letter-spacing: 3px;
     text-transform: uppercase;
     color: var(--green-dark);
-    background: var(--salmon);
-    border: 1px solid var(--salmon);
-    padding: 1.1rem 3rem;
-    text-decoration: none;
-    transition: all 0.35s ease;
-    position: relative;
-    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: gap 0.3s ease;
   }
 
-  .btn-cta:hover {
-    background: transparent;
-    color: var(--salmon);
-  }
+  .journal-card:hover .card-read { gap: 0.9rem; }
 
   /* ── FOOTER ── */
   footer {
@@ -833,265 +212,35 @@
     align-items: center;
   }
 
-  .footer-left {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-  }
-
-  .footer-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 400;
-    font-size: 1.1rem;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--warm-white);
-  }
-
-  .footer-brand {
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    font-size: 0.6rem;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--salmon);
-  }
-
-  .footer-tagline {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-style: italic;
-    font-size: 0.95rem;
-    color: rgba(245,240,232,0.5);
-  }
-
-  .footer-links {
-    display: flex;
-    gap: 1.8rem;
-  }
-
-  .footer-links a {
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    font-size: 0.68rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--green-light);
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-
+  .footer-left { display: flex; flex-direction: column; gap: 0.3rem; }
+  .footer-name { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.1rem; letter-spacing: 4px; text-transform: uppercase; color: var(--warm-white); }
+  .footer-brand { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 0.6rem; letter-spacing: 4px; text-transform: uppercase; color: var(--salmon); }
+  .footer-tagline { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-style: italic; font-size: 0.95rem; color: rgba(245,240,232,0.5); }
+  .footer-links { display: flex; gap: 1.8rem; }
+  .footer-links a { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--green-light); text-decoration: none; transition: color 0.3s ease; }
   .footer-links a:hover { color: var(--salmon); }
 
   /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(22px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  .fade-in {
-    opacity: 0;
-    transform: translateY(18px);
-    transition: opacity 0.85s ease, transform 0.85s ease;
-  }
-
-  .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* ── USP STRIP ── */
-  .usp-strip {
-    background: var(--espresso);
-    padding: 5rem 2rem;
-    text-align: center;
-  }
-
-  .usp-strip-inner {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .usp-statement {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-size: clamp(1.5rem, 2.8vw, 2.2rem);
-    font-style: italic;
-    color: var(--warm-white);
-    line-height: 1.6;
-    margin-bottom: 2.5rem;
-  }
-
-  .usp-outcomes {
-    display: flex;
-    justify-content: center;
-    gap: 0;
-    flex-wrap: wrap;
-    border-top: 1px solid rgba(229,199,181,0.2);
-    border-bottom: 1px solid rgba(229,199,181,0.2);
-    padding: 2rem 0;
-    margin-bottom: 2.5rem;
-  }
-
-  .usp-outcome {
-    flex: 1;
-    min-width: 200px;
-    padding: 1.2rem 2rem;
-    border-right: 1px solid rgba(229,199,181,0.15);
-  }
-
-  .usp-outcome:last-child { border-right: none; }
-
-  .usp-outcome-text {
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    font-size: 0.82rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--salmon);
-    line-height: 1.7;
-    margin-bottom: 0;
-  }
-
-  .usp-delivery {
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    font-size: 0.75rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: rgba(245,240,232,0.4);
-  }
-
-  /* ── PACKAGE PRICE ── */
-  .package-price {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 400;
-    font-size: 2rem;
-    letter-spacing: 1px;
-    color: var(--espresso);
-    margin-bottom: 0.2rem;
-    line-height: 1;
-  }
-
-  .package-card.featured .package-price { color: var(--warm-white); }
-
-  .package-price-note {
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    font-size: 0.72rem;
-    letter-spacing: 1px;
-    color: var(--text-muted);
-    margin-bottom: 1.8rem;
-    line-height: 1.6;
-  }
-
-  .package-card.featured .package-price-note { color: rgba(250,247,244,0.6); }
+  .fade-in { opacity: 0; transform: translateY(18px); transition: opacity 0.85s ease, transform 0.85s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
 
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
-    .hero {
-      grid-template-columns: 1fr;
-      min-height: auto;
-    }
-
-    .hero-content {
-      padding: 7rem 2rem 4rem;
-    }
-
-    .hero-photo {
-      height: 60vw;
-      min-height: 320px;
-    }
-
-    .about-layout {
-      grid-template-columns: 1fr;
-      gap: 3rem;
-    }
-
-    .portrait-frame::before { display: none; }
-
-    .portrait-placeholder, .portrait-img {
-      aspect-ratio: 4/3;
-    }
-
-    .photo-strip-inner {
-      grid-template-columns: 1fr;
-      height: auto;
-    }
-
-    .strip-photo { height: 55vw; min-height: 280px; }
+    .journal-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
   @media (max-width: 768px) {
     nav { padding: 1.2rem 1.5rem; }
     .nav-links { display: none; }
-    section { padding: 5rem 1.5rem; }
-    footer {
-      flex-direction: column;
-      gap: 1.8rem;
-      text-align: center;
-      padding: 2.5rem 1.5rem;
-    }
-    .services-grid { grid-template-columns: 1fr; }
-    .hero-content { padding: 6rem 1.5rem 3.5rem; }
-    .hero-subline { max-width: 100%; }
+    .journal-hero { padding: 8rem 1.5rem 4rem; }
+    .journal-index { padding: 4rem 1.5rem 6rem; }
+    .journal-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 1.8rem; text-align: center; padding: 2.5rem 1.5rem; }
   }
-
-
-/* Journal page specific styles */
-.journal-page-hero {
-  padding: 10rem 2rem 5rem;
-  background: var(--cream);
-  border-bottom: 1px solid var(--salmon);
-}
-
-.journal-page-hero .container {
-  max-width: 780px;
-}
-
-.journal-index {
-  padding: 5rem 2rem 7rem;
-}
-
-.journal-index .container {
-  max-width: 780px;
-  margin: 0 auto;
-}
-
-.journal-back {
-  display: inline-block;
-  font-family: 'Jost', sans-serif;
-  font-weight: 300;
-  font-size: 0.7rem;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  text-decoration: none;
-  margin-bottom: 4rem;
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  transition: color 0.3s ease;
-}
-
-.journal-back:hover { color: var(--green-dark); }
-
-.journal-back svg { flex-shrink: 0; }
-
-.journal-card {
-  background: var(--warm-white);
-  border-top: 2px solid var(--salmon);
-  padding: 3rem 2.8rem;
-  margin-bottom: 3rem;
-}
-
-.journal-card:last-child { margin-bottom: 0; }
-
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="index.html" class="nav-name">
     <span class="nav-name-primary">Naomi Murray</span>
@@ -1108,100 +257,69 @@
   </ul>
 </nav>
 
-<!-- JOURNAL HEADER -->
-<div class="journal-page-hero">
+<div class="journal-hero">
   <div class="container">
     <p class="section-eyebrow">From the Journal</p>
     <h1 class="section-title">Thoughts on Space,<br>Mind &amp; How We Live</h1>
     <div class="section-divider"></div>
-    <p style="color: var(--text-muted); max-width: 560px; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.1rem; line-height: 1.75;">A place for honest writing about the connection between our environments and our inner lives. Not advice columns. Not quick fixes. Just the kind of thinking that takes you somewhere.</p>
+    <p class="journal-hero-intro">A place for honest writing about the connection between our environments and our inner lives. Not advice columns. Not quick fixes. Just the kind of thinking that takes you somewhere.</p>
   </div>
 </div>
 
-<!-- JOURNAL ENTRIES -->
 <section class="journal-index">
   <div class="container">
 
     <a href="index.html" class="journal-back">
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M10 12L6 8l4-4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8l4-4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       Back to Sansun Living
     </a>
 
-    <div class="journal-card fade-in">
-      <p class="journal-date">April 2026 &mdash; Issue No. 1</p>
-      <h2 class="journal-title">When Your Home Stops Feeling Like Yours</h2>
-      <div class="journal-body">
-        <p>I have always found calm through order. As a child, my bedroom was my sanctuary, not perfect, just settled and mine. Long before I understood the language for it, I instinctively knew that a calm space helped me feel like myself.</p>
-        <p>That instinct stayed with me through demanding careers in London and Sydney, through marriage and motherhood and step-motherhood, through years inside large organisations where busyness was mistaken for purpose.</p>
-        <p>Then came the real shift. Work moved into the home. Life multiplied. The house that had once felt manageable began to feel quietly relentless.</p>
-        <p>Eventually I left. I moved to the coast, and then further still, to a tropical island on the south coast of Sri Lanka, a long-held dream. What I did not expect was how profoundly environment can affect even the most organised mind. Living outside the systems I had always known, fewer predictable services, constant weather, beautiful daily unpredictability, undid something in me. The background chaos had a deeper impact than I anticipated.</p>
-        <blockquote class="journal-pull">Organisation is not just about tidying a home. Our environments shape how we think, how we feel, and how well we are able to function day to day.</blockquote>
-        <p>Sansun Living grew from that understanding, and from the slow, deliberate work of coming home to myself.</p>
-        <p>My work is not about forcing a method or creating a picture-perfect home. It is about gently restoring space, physically and mentally, so that your home begins to support your life rather than compete with it. Together we create systems that work with your life and your personality, not against them.</p>
-        <p>Because when your environment settles, your mind can begin to settle too. And from there, everything becomes a little clearer.</p>
-      </div>
-    </div>
+    <div class="journal-grid">
 
-    <div class="journal-card fade-in">
-      <p class="journal-date">April 2026 &mdash; Issue No. 2</p>
-      <h2 class="journal-title">The Things We Keep Just in Case</h2>
-      <div class="journal-body">
-        <p>There is a particular category of object that lives in almost every home I work in. It sits at the back of a shelf or the bottom of a box, slightly out of reach, slightly out of mind. It is not loved. It is not used. It is kept against a future need that never quite arrives.</p>
-        <p>We tend to call this prudence. I think it is something else.</p>
-        <p>The <em>just in case</em> object carries weight that has nothing to do with its size. It represents a version of the future we are hedging against, a quiet anxiety that if we let it go, we will somehow be caught short. Multiply that logic across a whole household and you have rooms that feel heavy with potential rather than settled with purpose.</p>
-        <blockquote class="journal-pull">What we choose to keep is a question about how much we trust ourselves, not just how much we trust the future.</blockquote>
-        <p>The work of releasing these objects is not really about the objects. It is about practising the belief that you will be able to manage whatever comes, that you do not need to store solutions to problems that do not yet exist.</p>
-        <p>This is not a call to minimalism. I am not interested in empty rooms or prescribed aesthetics. I am interested in homes where everything present is either useful, loved, or both. The rest is simply weight you are carrying on behalf of a future that may never arrive.</p>
-        <p>When clients let go of the just-in-case pile, they almost always describe the same thing afterwards. Not relief exactly. More like a quietness they had not noticed was missing.</p>
-      </div>
-    </div>
+      <a href="journal-1.html" class="journal-card fade-in">
+        <p class="card-issue">Issue No. 1</p>
+        <p class="card-date">April 2026</p>
+        <h2 class="card-title">When Your Home Stops Feeling Like Yours</h2>
+        <p class="card-excerpt">On the instinct for order, a move to Sri Lanka, and what happens when the environment you live in begins to work against you.</p>
+        <span class="card-read">Read &rarr;</span>
+      </a>
 
-    <div class="journal-card fade-in">
-      <p class="journal-date">May 2026 &mdash; Issue No. 3</p>
-      <h2 class="journal-title">Why the Kitchen Tells You Everything</h2>
-      <div class="journal-body">
-        <p>If I am working with someone for the first time, I always ask to see the kitchen. Not the living room, which is usually tidied before guests arrive. Not the study, which can be closed. The kitchen. The kitchen is honest.</p>
-        <p>It is where the household runs. Where decisions are made ten times a day under mild pressure. Where systems either hold or collapse. The state of the kitchen is rarely about the kitchen. It is a fairly accurate map of everything else.</p>
-        <p>What I tend to find is not chaos, exactly. Most people are functioning. But there is often a layer of friction built into the space that nobody quite notices because it has always been there. The pan that lives in the wrong cupboard. The four wooden spoons where one would do. The drawer that requires a particular angle to open. Small, constant, exhausting.</p>
-        <blockquote class="journal-pull">A kitchen that works well is not one that looks like a showroom. It is one where the right thing is always in the right place, without having to think about it.</blockquote>
-        <p>The goal is never beauty for its own sake. It is ease. It is the morning where breakfast happens without irritation, where the right pan is where you expected it to be, where the counter is clear enough to actually work on. These are small things. They are not small things.</p>
-        <p>Start with the kitchen. Sort one drawer. See what the rest of the day feels like. The knock-on effect tends to surprise people.</p>
-      </div>
-    </div>
+      <a href="journal-2.html" class="journal-card fade-in">
+        <p class="card-issue">Issue No. 2</p>
+        <p class="card-date">April 2026</p>
+        <h2 class="card-title">The Things We Keep Just in Case</h2>
+        <p class="card-excerpt">The object at the back of the shelf that is not loved and not used. What we are really holding onto when we cannot let things go.</p>
+        <span class="card-read">Read &rarr;</span>
+      </a>
 
-    <div class="journal-card fade-in">
-      <p class="journal-date">May 2026 &mdash; Issue No. 4</p>
-      <h2 class="journal-title">On Moving and What Follows You</h2>
-      <div class="journal-body">
-        <p>Most people who move abroad do a version of the same thing. They sort ruthlessly before they leave. They ship far less than they thought they would. They arrive lighter than they have been in years and, for a brief period, feel the extraordinary freedom of that.</p>
-        <p>And then, gradually, things accumulate.</p>
-        <p>This is not a failure of discipline. It is what happens when people build a life somewhere. Objects arrive as gifts, as practical necessities, as comfort during the difficult adjustment months. A new country brings new shopping habits, new solutions to new problems. Within a year, the lightness is gone.</p>
-        <blockquote class="journal-pull">Moving does not solve the underlying relationship with our possessions. It only pauses it.</blockquote>
-        <p>I see this particularly often among expats in Sri Lanka, many of whom arrived with a clear vision of a simpler life and found that life does not simplify on its own. The climate, the household help, the different relationship with space and storage here, all of these require new systems. The ones from home rarely transfer.</p>
-        <p>What I offer in these situations is not a second sort. It is the chance to build something designed for the life you are actually living now, in this house, in this country. That is a different project, and usually a more interesting one.</p>
-      </div>
-    </div>
+      <a href="journal-3.html" class="journal-card fade-in">
+        <p class="card-issue">Issue No. 3</p>
+        <p class="card-date">May 2026</p>
+        <h2 class="card-title">Why the Kitchen Tells You Everything</h2>
+        <p class="card-excerpt">The kitchen is honest. It is where systems either hold or collapse. And its state is rarely about the kitchen at all.</p>
+        <span class="card-read">Read &rarr;</span>
+      </a>
 
-    <div class="journal-card fade-in">
-      <p class="journal-date">June 2026 &mdash; Issue No. 5</p>
-      <h2 class="journal-title">The Case Against the Big Clear-Out</h2>
-      <div class="journal-body">
-        <p>Every January, the same idea surfaces. This is the year. The whole house, one weekend, everything sorted and labelled and finally in its place. It is a deeply appealing idea and it almost never works.</p>
-        <p>The problem is not motivation. People begin with enormous motivation. The problem is that a whole house, sorted in a weekend, requires every decision to be made under pressure, in a state of mounting exhaustion, with the end in sight and the process nowhere near complete. What tends to follow is not a calm, organised home. It is a collection of boxes left in the spare room, a floor that has been cleared but not resolved, and a particular kind of tired that makes the whole subject feel worse than before.</p>
-        <p>I have never recommended the big clear-out. Not once.</p>
-        <blockquote class="journal-pull">A home is not disorganised in a weekend, and it cannot be genuinely sorted in one either. Sustainable order is built in layers, over time, with care.</blockquote>
-        <p>What works, consistently and for almost everyone, is starting with a single contained space. A drawer. A shelf. One category of things. Completing it fully, not just sorting it but creating a home for everything that belongs there and a plan for everything that does not. Then stopping.</p>
-        <p>That one completed space does something important. It gives you a reference point, a place in the house that now works. You return to it. You notice the difference. You begin to want more of it.</p>
-        <p>That is how change actually takes hold. Not in a weekend, but in the quiet accumulation of small things done properly.</p>
-      </div>
-    </div>
+      <a href="journal-4.html" class="journal-card fade-in">
+        <p class="card-issue">Issue No. 4</p>
+        <p class="card-date">May 2026</p>
+        <h2 class="card-title">On Moving and What Follows You</h2>
+        <p class="card-excerpt">Most people who move abroad arrive lighter than they have been in years. Within twelve months, the lightness is gone.</p>
+        <span class="card-read">Read &rarr;</span>
+      </a>
 
+      <a href="journal-5.html" class="journal-card fade-in">
+        <p class="card-issue">Issue No. 5</p>
+        <p class="card-date">June 2026</p>
+        <h2 class="card-title">The Case Against the Big Clear-Out</h2>
+        <p class="card-excerpt">The whole house, one weekend, everything finally sorted. It is a deeply appealing idea and it almost never works.</p>
+        <span class="card-read">Read &rarr;</span>
+      </a>
+
+    </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-left">
     <span class="footer-name">Naomi Murray</span>
@@ -1218,11 +336,9 @@
 <script>
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
+      if (entry.isIntersecting) entry.target.classList.add('visible');
     });
-  }, { threshold: 0.12 });
+  }, { threshold: 0.1 });
 
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>

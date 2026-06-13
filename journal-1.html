@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>When Your Home Stops Feeling Like Yours | Sansun Living</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --salmon:       #e5c7b5;
+    --salmon-deep:  #c99a82;
+    --salmon-pale:  #f5ebe4;
+    --green:        #7c8479;
+    --green-dark:   #5a6057;
+    --green-light:  #b0b8ad;
+    --espresso:     #2e2118;
+    --espresso-mid: #4a3728;
+    --warm-white:   #faf7f4;
+    --cream:        #f5f0e8;
+    --text-body:    #3a2e22;
+    --text-muted:   #7a6a58;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    background-color: var(--warm-white);
+    color: var(--text-body);
+    line-height: 1.85;
+    font-size: 17px;
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.4rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(250,247,244,0.93);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--salmon);
+  }
+
+  .nav-name { display: flex; flex-direction: column; gap: 0.1rem; text-decoration: none; }
+  .nav-name-primary { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 1.25rem; letter-spacing: 3px; text-transform: uppercase; color: var(--espresso); line-height: 1; }
+  .nav-name-secondary { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 0.62rem; letter-spacing: 4px; text-transform: uppercase; color: var(--green); }
+
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.3s ease; }
+  .nav-links a:hover { color: var(--green-dark); }
+
+  .article-hero {
+    padding: 10rem 2rem 5rem;
+    background: var(--cream);
+    border-bottom: 1px solid var(--salmon);
+  }
+
+  .article-hero .container { max-width: 780px; margin: 0 auto; }
+
+  .article-eyebrow {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 0.68rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 1.2rem;
+  }
+
+  .article-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--espresso);
+    line-height: 1.15;
+    margin-bottom: 2rem;
+  }
+
+  .article-meta {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .article-body {
+    padding: 5rem 2rem 7rem;
+  }
+
+  .article-body .container {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .article-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-bottom: 4rem;
+    transition: color 0.3s ease;
+  }
+
+  .article-back:hover { color: var(--green-dark); }
+
+  .article-body p {
+    font-size: 1.05rem;
+    line-height: 1.95;
+    color: var(--text-body);
+    margin-bottom: 1.6rem;
+  }
+
+  .article-body p:last-child { margin-bottom: 0; }
+
+  .article-body em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+  }
+
+  .journal-pull {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(1.3rem, 2.2vw, 1.75rem);
+    font-style: italic;
+    color: var(--espresso);
+    border-left: 2px solid var(--salmon-deep);
+    padding-left: 2rem;
+    margin: 3rem 0;
+    line-height: 1.55;
+  }
+
+  .article-nav {
+    border-top: 1px solid var(--salmon);
+    padding-top: 3rem;
+    margin-top: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .article-nav a {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .article-nav a:hover { color: var(--green-dark); }
+  .article-nav .next { text-align: right; }
+
+  footer {
+    background-color: var(--espresso);
+    padding: 3rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-left { display: flex; flex-direction: column; gap: 0.3rem; }
+  .footer-name { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.1rem; letter-spacing: 4px; text-transform: uppercase; color: var(--warm-white); }
+  .footer-brand { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 0.6rem; letter-spacing: 4px; text-transform: uppercase; color: var(--salmon); }
+  .footer-tagline { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-style: italic; font-size: 0.95rem; color: rgba(245,240,232,0.5); }
+  .footer-links { display: flex; gap: 1.8rem; }
+  .footer-links a { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--green-light); text-decoration: none; transition: color 0.3s ease; }
+  .footer-links a:hover { color: var(--salmon); }
+
+  @media (max-width: 768px) {
+    nav { padding: 1.2rem 1.5rem; }
+    .nav-links { display: none; }
+    footer { flex-direction: column; gap: 1.8rem; text-align: center; padding: 2.5rem 1.5rem; }
+    .article-hero { padding: 8rem 1.5rem 4rem; }
+    .article-body { padding: 4rem 1.5rem 5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-name">
+    <span class="nav-name-primary">Naomi Murray</span>
+    <span class="nav-name-secondary">Sansun Living</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#for-you">Is This For You</a></li>
+    <li><a href="index.html#how">How I Work</a></li>
+    <li><a href="index.html#work">What I Bring</a></li>
+    <li><a href="index.html#packages">Investment</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="journal.html" style="color: var(--green-dark);">Journal</a></li>
+    <li><a href="index.html#consult">Book a Consultation</a></li>
+  </ul>
+</nav>
+
+<div class="article-hero">
+  <div class="container">
+    <p class="article-eyebrow">Journal &mdash; Issue No. 1</p>
+    <h1 class="article-title">When Your Home Stops Feeling Like Yours</h1>
+    <p class="article-meta">April 2026 &mdash; Naomi Murray</p>
+  </div>
+</div>
+
+<section class="article-body">
+  <div class="container">
+
+    <a href="journal.html" class="article-back">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8l4-4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back to Journal
+    </a>
+
+    <p>I have always found calm through order. As a child, my bedroom was my sanctuary, not perfect, just settled and mine. Long before I understood the language for it, I instinctively knew that a calm space helped me feel like myself.</p>
+    <p>That instinct stayed with me through demanding careers in London and Sydney, through marriage and motherhood and step-motherhood, through years inside large organisations where busyness was mistaken for purpose.</p>
+    <p>Then came the real shift. Work moved into the home. Life multiplied. The house that had once felt manageable began to feel quietly relentless.</p>
+    <p>Eventually I left. I moved to the coast, and then further still, to a tropical island on the south coast of Sri Lanka, a long-held dream. What I did not expect was how profoundly environment can affect even the most organised mind. Living outside the systems I had always known, fewer predictable services, constant weather, beautiful daily unpredictability, undid something in me. The background chaos had a deeper impact than I anticipated.</p>
+    <blockquote class="journal-pull">Organisation is not just about tidying a home. Our environments shape how we think, how we feel, and how well we are able to function day to day.</blockquote>
+    <p>Sansun Living grew from that understanding, and from the slow, deliberate work of coming home to myself.</p>
+    <p>My work is not about forcing a method or creating a picture-perfect home. It is about gently restoring space, physically and mentally, so that your home begins to support your life rather than compete with it. Together we create systems that work with your life and your personality, not against them.</p>
+    <p>Because when your environment settles, your mind can begin to settle too. And from there, everything becomes a little clearer.</p>
+
+    <div class="article-nav">
+      <span></span>
+      <a href="journal-2.html" class="next">Next: The Things We Keep Just in Case &rarr;</a>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-left">
+    <span class="footer-name">Naomi Murray</span>
+    <span class="footer-brand">Sansun Living</span>
+  </div>
+  <span class="footer-tagline">Creating Space to Breathe</span>
+  <div class="footer-links">
+    <a href="https://instagram.com" target="_blank">Instagram</a>
+    <a href="https://pinterest.com" target="_blank">Pinterest</a>
+    <a href="mailto:info@sansunliving.com">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>
