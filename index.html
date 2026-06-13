@@ -1375,7 +1375,7 @@
   <div class="footer-links">
     <a href="https://instagram.com" target="_blank">Instagram</a>
     <a href="https://pinterest.com" target="_blank">Pinterest</a>
-    <a href="mailto:hello@sansunliving.com">Contact</a>
+    <a href="mailto:info@sansunliving.com">Contact</a>
   </div>
 </footer>
 
@@ -1390,7 +1390,7 @@
 
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-  const WORKER_URL = 'https://sansunliving-contact.naomimurray.workers.dev';
+  const WORKER_URL = 'https://sansunliving-contact.jolly-heart-bd0f.workers.dev';
 
   document.getElementById('contact-form').addEventListener('submit', async function(e) {
     e.preventDefault();
@@ -1431,7 +1431,7 @@
     } catch {
       btn.disabled = false;
       btn.textContent = 'Send a Message';
-      feedback.textContent = 'Something went wrong. Please try emailing hello@sansunliving.com directly.';
+      feedback.textContent = 'Something went wrong. Please try emailing info@sansunliving.com directly.';
       feedback.className = 'cf-feedback error';
     }
   });
