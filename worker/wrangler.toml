@@ -1,0 +1,12 @@
+name = "sansunliving-contact"
+main = "contact.js"
+compatibility_date = "2024-01-01"
+
+[vars]
+TO_EMAIL = "naomi@sansungroup.com"
+FROM_EMAIL = "hello@sansunliving.com"
+
+# Set these as secrets via the dashboard or:
+#   wrangler secret put FIREBASE_PROJECT_ID
+#   wrangler secret put FIREBASE_CLIENT_EMAIL
+#   wrangler secret put FIREBASE_PRIVATE_KEY
